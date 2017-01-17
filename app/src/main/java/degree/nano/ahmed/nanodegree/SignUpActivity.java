@@ -18,11 +18,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import degree.nano.ahmed.nanodegree.Controller.StoreData;
 import degree.nano.ahmed.nanodegree.model.UserModel;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText edUserName,edEmail,edPass,edConPass;
+    EditText edUserName,edEmail,edPass,edConPass,edMobile;
     Button btnSignUp;
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
@@ -41,6 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
         edUserName = (EditText) findViewById(R.id.edUserName);
         edEmail = (EditText) findViewById(R.id.edEmail);
         edPass = (EditText) findViewById(R.id.edPass);
+        edMobile = (EditText) findViewById(R.id.edMobile);
         edConPass = (EditText) findViewById(R.id.edConPass);
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
     }
@@ -48,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(edUserName.getText().toString().equals("")||edEmail.getText().toString().equals("")
+                if(edUserName.getText().toString().equals("")||edEmail.getText().toString().equals("")||edMobile.getText().toString().equals("")
                         ||edPass.getText().toString().equals("")||edConPass.getText().toString().equals(""))
 
                 {
@@ -81,9 +83,10 @@ public class SignUpActivity extends AppCompatActivity {
         String username = edUserName.getText().toString();
         String email = userFromRegistration.getEmail();
         String userId = userFromRegistration.getUid();
+        String mobile = edMobile.getText().toString();
 
-        UserModel user = new UserModel(username, email,"12212");
-
+        UserModel user = new UserModel(username, email,mobile);
+        new StoreData(this).setUserId(userId);
 
         mDatabase.child("users").child(userId).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

@@ -62,7 +62,7 @@
                     android:singleLine="true"
                     android:textColor="@color/purple"
                     android:hint="Password"
-                    android:inputType="numberPassword" />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
 

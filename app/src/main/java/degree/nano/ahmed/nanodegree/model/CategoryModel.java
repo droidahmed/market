@@ -1,5 +1,7 @@
 package degree.nano.ahmed.nanodegree.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by sand on 16/01/17.
  */
@@ -8,12 +10,28 @@ public class CategoryModel {
     String name;
     String id;
     String urlPath;
+ //   ArrayList<ProductModel> productModels;
 
-    public CategoryModel(String name, String id,String urlPath) {
+    public CategoryModel() {
+    }
+
+
+    public CategoryModel(String name, String id, String urlPath
+       //     , ArrayList<ProductModel> productModels
+    ) {
         this.name = name;
         this.id = id;
         this.urlPath = urlPath;
+     //   this.productModels = productModels;
     }
+
+//    public ArrayList<ProductModel> getProductModels() {
+//        return productModels;
+//    }
+//
+//    public void setProductModels(ArrayList<ProductModel> productModels) {
+//        this.productModels = productModels;
+//    }
 
     public String getId() {
         return id;

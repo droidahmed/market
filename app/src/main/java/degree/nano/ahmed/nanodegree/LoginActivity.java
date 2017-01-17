@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import degree.nano.ahmed.nanodegree.Controller.StoreData;
+
 public class LoginActivity extends AppCompatActivity {
 
     TextView tvSignUp;
@@ -26,9 +28,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        move();
         auth = FirebaseAuth.getInstance();
         declare();
         action();
+
     }
     private void declare(){
         edEmail = (EditText) findViewById(R.id.edEmail);
@@ -72,6 +76,9 @@ public class LoginActivity extends AppCompatActivity {
                                             Toast.makeText(LoginActivity.this, ""+task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
                                         }
                                     } else {
+                                      String userId = task.getResult().getUser().getUid();
+                                        new StoreData(LoginActivity.this).setUserId(userId);
+
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -81,5 +88,12 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void move(){
+        if(!new StoreData(this).getUserId().equals("0")){
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 }

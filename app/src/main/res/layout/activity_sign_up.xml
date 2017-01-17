@@ -70,6 +70,21 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/edMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/purple"
+                    android:singleLine="true"
+                    android:hint="Mobile"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
                     android:id="@+id/edPass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,7 +92,7 @@
                     android:singleLine="true"
                     android:textColor="@color/purple"
                     android:hint="Password"
-                    android:inputType="numberPassword" />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -92,7 +107,7 @@
                     android:singleLine="true"
                     android:textColor="@color/purple"
                     android:hint="Confirm Password"
-                    android:inputType="numberPassword" />
+                    android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
 
