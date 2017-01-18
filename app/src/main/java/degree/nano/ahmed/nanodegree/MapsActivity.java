@@ -1,8 +1,10 @@
 package degree.nano.ahmed.nanodegree;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,18 +32,19 @@ import degree.nano.ahmed.nanodegree.adapter.CategoryAdapter;
 import degree.nano.ahmed.nanodegree.model.CategoryModel;
 import degree.nano.ahmed.nanodegree.model.ProductModel;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback , GoogleMap.OnMarkerClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     ArrayList<ProductModel> productModels;
     ArrayList<LatLng> latLngArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         productModels = new ArrayList<>();
         latLngArrayList = new ArrayList<>();
-        if(getIntent().getExtras()!=null){
+        if (getIntent().getExtras() != null) {
             getIntent().getExtras().getString("id");
         }
 
@@ -64,6 +67,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
 
         // Add a marker in Sydney and move the camera
 
@@ -73,7 +87,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void retrieveData(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference posts = database.getReference("category").child("0").child("c1");
+        DatabaseReference posts = database.getReference("category").child("1").child("m1");
         posts.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -133,8 +147,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Target target = new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                Log.d("qqq", url);
-                marker.setIcon(BitmapDescriptorFactory.fromBitmap(bitmap));
+               Bitmap imageBitmap = Bitmap.createScaledBitmap(bitmap, 64, 64, false);
+                Log.d("qqq", imageBitmap.getDensity()+"");
+
+                marker.setIcon(BitmapDescriptorFactory.fromBitmap(imageBitmap));
             }
 
             @Override

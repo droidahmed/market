@@ -56,4 +56,10 @@ public class CategoryModel {
     public void setUrlPath(String urlPath) {
         this.urlPath = urlPath;
     }
+
+    @Override
+    public String toString() {
+        return "CategoryModel{" +
+                "name='" + name ;
+    }
 }

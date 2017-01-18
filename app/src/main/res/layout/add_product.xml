@@ -30,15 +30,15 @@
         android:layout_height="130dp"
         android:src="@drawable/product"/>
 
-    <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-        android:id="@+id/spCategories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Categories"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/purple"
-        android:textColorHint="@color/purple"
-        app:met_floatingLabel="normal" />
+    <!--<com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner-->
+        <!--android:id="@+id/spCategories"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="Categories"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:textColor="@color/purple"-->
+        <!--android:textColorHint="@color/purple"-->
+         <!--/>-->
     
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -108,16 +108,33 @@
                 android:layout_marginTop="16dp"
                 android:singleLine="true"
                 android:textColor="@color/purple"
+                android:inputType="phone"
                 android:hint="Mobile       "
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="16dp"
+                android:singleLine="true"
+                android:textColor="@color/purple"
+                android:hint="Email       "
                 />
         </android.support.design.widget.TextInputLayout>
 
 
 
 
-
-
     <Button
+        android:id="@+id/btnAddProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"

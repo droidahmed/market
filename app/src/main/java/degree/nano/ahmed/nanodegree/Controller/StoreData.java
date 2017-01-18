@@ -29,5 +29,25 @@ public class StoreData {
         return prefs.getString("userId","0");
     }
 
+    public void setLong(float longitude)
+    {
+        editor.putFloat("longitude", longitude);
+        editor.commit();
+    }
 
+    public double getLong()
+    {
+        return prefs.getFloat("longitude",30.044445f);
+    }
+
+    public void setLatitude(float longitude)
+    {
+        editor.putFloat("latitude", longitude);
+        editor.commit();
+    }
+
+    public double getLatitude()
+    {
+        return prefs.getFloat("latitude",31.235850f);
+    }
 }

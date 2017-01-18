@@ -11,6 +11,8 @@ public class ProductModel {
     String price;
     double latitude;
     double longitude;
+    String mobile;
+    String email;
 
     public ProductModel() {
     }
@@ -30,7 +32,18 @@ public class ProductModel {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+    public ProductModel(String productName, String productDescription, String productUrl, String price,String email,
+                        String mobile,double longitude, double latitude) {
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.productUrl = productUrl;
+        this.price = price;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.mobile = mobile;
+        this.email = email;
 
+    }
     public String getProductName() {
         return productName;
     }

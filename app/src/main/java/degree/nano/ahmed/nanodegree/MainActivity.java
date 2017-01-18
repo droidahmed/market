@@ -44,13 +44,7 @@ public class MainActivity extends AppCompatActivity {
 //                "https://firebasestorage.googleapis.com/v0/b/glaring-torch-4375.appspot.com/o/nexsus.jpg?alt=media&token=6714551b-f842-405c-af93-3f92388bfde4",51.418188,5.499304));
 //
       //  mDatabase.child("category").child("1").child("m1").setValue(categoryModels);
-    categoryModels.add(new ProductModel( "Mercedes AMG","Model 2016 good condition red color modified to 800 hp","270000 $",
-            "https://firebasestorage.googleapis.com/v0/b/glaring-torch-4375.appspot.com/o/mercedes.jpg?alt=media&token=18f0fcae-c55d-4379-b749-7b5d75a6176c",43.403198,11.302560));
-    categoryModels.add(new ProductModel("Audi R 8","very luxuries red color modified bt ATB to 750 hp","210000 $",
-                                                "https://firebasestorage.googleapis.com/v0/b/glaring-torch-4375.appspot.com/o/audi.jpg?alt=media&token=87451580-6bee-4220-a7cf-5b0383252aeb",48.747331,2.412987));
-    categoryModels.add(new ProductModel("BMW x5","very luxuries red color modified bt ATB to 600 hp","155000 $",
-                                                "https://firebasestorage.googleapis.com/v0/b/glaring-torch-4375.appspot.com/o/bmw_series.png?alt=media&token=dcde1b82-587e-4c51-a675-724e88612e67",50.137152,8.959783));
-    mDatabase.child("category").child("0").child("c1").setValue(categoryModels);
+
     }
 
     private void declare(){
